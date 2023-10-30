@@ -24,6 +24,7 @@ export const FormContext = createContext();
 export const FormContextProvider = ({ children }) => {
   const arrayoptions = ["Todo","Compras", "Turnos", "Nota personal"];
   const userMail = "chawi@test.com";
+  
 
   const [selectedCategory, setSelectedCategory] = useState("Todo");
   const [filteredTasks, setFilteredTasks] = useState([]);
