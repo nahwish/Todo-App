@@ -1,24 +1,27 @@
 import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { FormContext } from "./context/FormContext";
+import { GetContext } from "./context/GetContext";
 import { filterTasksByCategory } from "./utils/filter";
 import Home from "./Page";
 import { fetchApiData, deleteApiData } from "./services/Api";
 
 const App = () => {
   const userMail = "chawi@test.com";
-  const [tasks, setTasks] = useState(null);
+  // const [tasks, setTasks] = useState(null);
 
-  const { selectedCategory, setFilteredTasks } = useContext(FormContext);
+  const { selectedCategory, setFilteredTasks, tasks } =
+    useContext(FormContext);
+  const { getData } = useContext(GetContext);
 
-  const getData = async () => {
-    try {
-      const response = await fetchApiData(userMail);
-      setTasks(response);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const getData = async () => {
+  //   try {
+  //     const response = await fetchApiData(userMail);
+  //     setTasks(response);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   const deleteItem = async (id) => {
     try {

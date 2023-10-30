@@ -1,10 +1,12 @@
 import { createContext, useContext } from "react";
 import { FormContext } from "./FormContext";
+import { fetchApiData } from "../services/Api";
+
 
 export const GetContext = createContext();
 
 export const GetContextProvider = ({ children }) => {
-  const { userMail } = useContext(FormContext);
+  const { userMail,setTasks } = useContext(FormContext);
 
 
   const getData = async () => {
