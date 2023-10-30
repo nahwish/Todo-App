@@ -32,6 +32,16 @@ export const FormContextProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [tasks, setTasks] = useState(null);
   const [isChecked, setIsChecked] = useState(false);
+  const [editMode, setEditMode] = useState(false);
+
+  const [data, setData] = useState({
+    user_email: editMode ? tasks.user_email : "chawi@test.com",
+    title: editMode ? tasks.title : null,
+    progress: editMode ? tasks.progress : null,
+    description: editMode ? tasks.description : null,
+    category: editMode ? tasks.category : null,
+    date: editMode ? tasks.date : new Date(),
+  });
 
   const contextValue = {
     arrayoptions,
@@ -48,6 +58,10 @@ export const FormContextProvider = ({ children }) => {
     isChecked,
     setIsChecked,
     userMail,
+    data,
+    setData,
+    editMode,
+    setEditMode,
   };
   return (
     <FormContext.Provider value={contextValue}>{children}</FormContext.Provider>

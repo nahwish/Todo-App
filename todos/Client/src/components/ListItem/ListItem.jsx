@@ -1,5 +1,5 @@
-import { useState } from "react"; 
-
+import { useState,useContext } from "react"; 
+import { FormContext } from "../../context/FormContext";
 import CheckIcon from "../Icons/CheckIcon";
 import { EditIcon } from "../Icons/EditIcon/EditIcon";
 import Modal from "../Modal";
@@ -15,13 +15,19 @@ import TrashIcon from "../Icons/TrashIcon";
  */
 
 const ListItem = ({ deleteItem, getData,task }) => {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
+  const { showModal, setShowModal, setEditMode } = useContext(FormContext);
 
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDetails = () => {
     setIsOpen(!isOpen);
   };
+
+  const handleEdit = () =>{
+    setShowModal(true);
+    setEditMode(true);
+  }
 
   return (
     <div className="list-item">
@@ -38,7 +44,7 @@ const ListItem = ({ deleteItem, getData,task }) => {
       <p className="">{task.category}</p>
 
       <div className="button-container">
-        <button className="edit" onClick={() => setShowModal(true)}>
+        <button className="edit" onClick={() => handleEdit()}>
           <EditIcon />
         </button>
         <button className="delete" onClick={() => deleteItem(task.id)}>

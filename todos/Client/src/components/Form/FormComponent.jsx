@@ -1,16 +1,19 @@
 import { useContext } from "react";
 import { FormContext } from "../../context/FormContext";
+import { EditContext } from "../../context/EditContext";
 
+export const FormComponent = ({postData,}) => {
+  const {
+    arrayoptions,
+    isChecked,
+    setIsChecked,
+    setData,
+    data,
+    editMode,
+    setEditMode,
+  } = useContext(FormContext);
+  const { editData } = useContext(EditContext);
 
-export const FormComponent = ({
-  data,
-  editMode,
-  editData,
-  setData,
-  postData,
-}) => {
-  const { arrayoptions, isChecked, setIsChecked } =
-    useContext(FormContext);
   const { title, description, progress, category } = data;
 
   const handleChange = (e) => {

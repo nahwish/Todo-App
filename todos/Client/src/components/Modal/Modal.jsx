@@ -16,18 +16,21 @@ import { createApiData, editApiData } from "../../services/Api";
  * @returns {JSX.Element} The Modal component.
  */
 
-export const Modal = ({ modal, setShowModal, getData, task }) => {
-  const { setSelectedCategory } = useContext(FormContext);
-    const editMode = modal === "editar" ? true : false;
+export const Modal = ({ modal, getData, task }) => {
+  const { setSelectedCategory, setShowModal } = useContext(FormContext);
+    // const editMode = modal === "editar" ? true : false;
   const [isChecked, setIsChecked] = useState(false);
-  const [data, setData] = useState({
-    user_email: editMode ? task.user_email : "chawi@test.com",
-    title: editMode ? task.title : null,
-    progress: editMode ? task.progress : null,
-    description: editMode ? task.description : null,
-    category: editMode ? task.category : null,
-    date: editMode ? task.date : new Date(),
-  });
+  const [ editMode,setEditMode ] = useState(false);
+
+
+  // const [data, setData] = useState({
+  //   user_email: editMode ? task.user_email : "chawi@test.com",
+  //   title: editMode ? task.title : null,
+  //   progress: editMode ? task.progress : null,
+  //   description: editMode ? task.description : null,
+  //   category: editMode ? task.category : null,
+  //   date: editMode ? task.date : new Date(),
+  // });
   useEffect(() => {
     getData();
   }, [setSelectedCategory]);
@@ -41,15 +44,15 @@ export const Modal = ({ modal, setShowModal, getData, task }) => {
 
   const postData = async (e) => {
     e.preventDefault();
-    try {
-      const response = await createApiData(data);
-      if (response.status === 200) {
-        setShowModal(false);
-        getData();
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    // try {
+    //   const response = await createApiData(data);
+    //   if (response.status === 200) {
+    //     setShowModal(false);
+    //     getData();
+    //   }
+    // } catch (error) {
+    //   console.error(error);
+    // }
   };
 
   /**
@@ -58,18 +61,18 @@ export const Modal = ({ modal, setShowModal, getData, task }) => {
    * @returns {Promise<void>}
    */
 
-  const editData = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await editApiData(task, data);
-      if (response.status === 200) {
-        setShowModal(false);
-        getData();
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const editData = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await editApiData(task, data);
+  //     if (response.status === 200) {
+  //       setShowModal(false);
+  //       getData();
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   return (
     <div className="overlay">
@@ -81,11 +84,10 @@ export const Modal = ({ modal, setShowModal, getData, task }) => {
           </button>
         </div>
         <FormComponent
-          data={data}
-          setData={setData}
+          
+          
           isChecked={isChecked}
           editMode={editMode}
-          editData={editData}
           setShowModal={setShowModal}
           postData={postData}
         />

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useContext } from "react";
 import Modal from "../Modal";
-
+import { FormContext } from "../../context/FormContext";
 /**
  * Header component for a list with options to add and sign out.
  * @param {Object} props - The component's props.
@@ -10,7 +10,8 @@ import Modal from "../Modal";
  */
 
 const ListHeader = ({ listName,getData }) => {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
+  const { setShowModal,showModal } = useContext(FormContext);
   const signOut = () => {
     // TODO implement login
   };
@@ -30,7 +31,7 @@ const ListHeader = ({ listName,getData }) => {
       {showModal && (
         <Modal
           modal={"create"}
-          setShowModal={setShowModal}
+          // setShowModal={setShowModal}
           getData={getData}
          
         />

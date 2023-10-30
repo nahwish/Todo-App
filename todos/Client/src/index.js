@@ -5,6 +5,7 @@ import App from './App';
 import { FormContextProvider } from "./context/FormContext";
 import { GetContextProvider } from './context/GetContext';
 import { DeleteProvider } from './context/DeleteContext';
+import { EditContextProvider } from './context/EditContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +13,10 @@ root.render(
     <FormContextProvider>
       <GetContextProvider>
       <DeleteProvider>
+        <EditContextProvider>
     <App />
+
+        </EditContextProvider>
       </DeleteProvider>
 
       </GetContextProvider>
