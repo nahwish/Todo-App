@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { FormContext } from "./context/FormContext";
 import { GetContext } from "./context/GetContext";
+import { DeleteContext } from "./context/DeleteContext";
 import { filterTasksByCategory } from "./utils/filter";
 import Home from "./Page";
-import { fetchApiData, deleteApiData } from "./services/Api";
+// import { fetchApiData, deleteApiData } from "./services/Api";
 
 const App = () => {
   const userMail = "chawi@test.com";
@@ -13,6 +14,7 @@ const App = () => {
   const { selectedCategory, setFilteredTasks, tasks } =
     useContext(FormContext);
   const { getData } = useContext(GetContext);
+  const { deleteItem } = useContext(DeleteContext);
 
   // const getData = async () => {
   //   try {
@@ -23,17 +25,17 @@ const App = () => {
   //   }
   // };
 
-  const deleteItem = async (id) => {
-    try {
-      const response = await deleteApiData(id);
-      if (response.status === 200) {
-        getData();
-        filterTasksByCategory("Todo", setFilteredTasks, tasks);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const deleteItem = async (id) => {
+  //   try {
+  //     const response = await deleteApiData(id);
+  //     if (response.status === 200) {
+  //       getData();
+  //       filterTasksByCategory("Todo", setFilteredTasks, tasks);
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   useEffect(() => {
     getData();
