@@ -5,7 +5,7 @@
  * @param {Array<Object>} tasks - The list of tasks to filter.
  */
 
-export const filterTasksByCategory = (category, originalData, setTasks) => {
+export const filterTasksByCategory = (category, originalData=[], setTasks) => {
   const originalTasks = originalData.slice();
   if (category === "Todo") {
     setTasks(originalData);

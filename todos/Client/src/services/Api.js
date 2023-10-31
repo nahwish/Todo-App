@@ -4,7 +4,7 @@
  * @returns {Promise<Object>} A Promise that resolves to the fetched data.
  */
 export const fetchApiData = async (userMail) => {
-  const response = await fetch(`http://localhost:8000/todos/${userMail}`);
+  const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${userMail}`);
   const json = await response.json();
   return json;
 };
@@ -13,11 +13,13 @@ export const fetchApiData = async (userMail) => {
  * Deletes a task item from the API by its ID.
  * @param {string} id - The ID of the task to delete.
  * @returns {Promise<Response>} A Promise that resolves to the HTTP response.
- */
+ */ 
 export const deleteApiData = async (id) => {
-  const response = await fetch(`http://localhost:8000/todos/${id}`, {
-    method: "DELETE",
-  });
+  const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${id}`,
+    {
+      method: "DELETE",
+    }
+  );
   return response;
 };
 
@@ -27,7 +29,7 @@ export const deleteApiData = async (id) => {
  * @returns {Promise<Response>} A Promise that resolves to the HTTP response.
  */
 export const createApiData = async (data) => {
-  const response = await fetch(`http://localhost:8000/todos`, {
+  const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -42,7 +44,7 @@ export const createApiData = async (data) => {
  * @returns {Promise<Response>} A Promise that resolves to the HTTP response.
  */
 export const editApiData = async (task, data) => {
-  const response = await fetch(`http://localhost:8000/todos/${task.id}`, {
+  const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${task.id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
