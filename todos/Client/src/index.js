@@ -13,13 +13,13 @@ root.render(
   <React.StrictMode>
     <FormContextProvider>
       <GetContextProvider>
-            <PostContextProvider>
-        <DeleteProvider>
-          <EditContextProvider>
+        <PostContextProvider>
+          <DeleteProvider>
+            <EditContextProvider>
               <App />
-          </EditContextProvider>
-        </DeleteProvider>
-            </PostContextProvider>
+            </EditContextProvider>
+          </DeleteProvider>
+        </PostContextProvider>
       </GetContextProvider>
     </FormContextProvider>
   </React.StrictMode>

@@ -1,4 +1,11 @@
-export const Form = ({ handleSubmit, handleInputChange, arrayoptions,data,isCreating }) => {
+export const Form = ({
+  handleSubmit,
+  handleInputChange,
+  arrayoptions,
+  data,
+  isCreating,
+}) => {
+
   return (
     <form onSubmit={handleSubmit}>
       <input
@@ -29,7 +36,7 @@ export const Form = ({ handleSubmit, handleInputChange, arrayoptions,data,isCrea
       />
       <label htmlFor="select">Tipo de Nota</label>
       <select
-      id="select"
+        id="select"
         name="category"
         onChange={handleInputChange}
         value={data.category}
