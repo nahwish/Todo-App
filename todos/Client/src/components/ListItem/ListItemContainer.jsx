@@ -7,7 +7,9 @@ export const ListItemContainer = () => {
   const { tasks } = useContext(FormContext);
   const { deleteItem } = useContext(DeleteContext);
 
+  /* LOCAL STATE */
   const [isOpen, setIsOpen] = useState(false);
+  const [showModalForEdit, setShowModalForEdit] = useState(false);
 
   const toggleDetails = () => {
     setIsOpen(!isOpen);
@@ -20,6 +22,8 @@ export const ListItemContainer = () => {
       toggleDetails={toggleDetails}
       deleteItem={deleteItem}
       task={task}
+      showModalForEdit={showModalForEdit}
+      setShowModalForEdit={setShowModalForEdit}
     />
   ));
 };

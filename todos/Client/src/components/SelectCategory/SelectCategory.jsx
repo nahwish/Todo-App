@@ -2,23 +2,19 @@ import { useContext } from "react";
 import { FormContext } from "../../context/FormContext";
 import { filterTasksByCategory } from "../../utils/filter";
 
-export const SelectContainer = () => {
+export const SelectCategory = () => {
   const {
     arrayoptions,
     selectedCategory,
     setSelectedCategory,
     setTasks,
-    filteredTasks
+    filteredTasks,
   } = useContext(FormContext);
-
-
 
   const handleChange = (event) => {
     const category = event.target.value;
     setSelectedCategory(category);
     filterTasksByCategory(category, filteredTasks, setTasks);
-
-   
   };
 
   return (
