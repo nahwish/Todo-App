@@ -7,17 +7,20 @@ export const EditContext = createContext();
 
 export const EditContextProvider = ({children}) =>{
   const { getData } = useContext(GetContext);
-  const { setShowModal,tasks,data } = useContext(FormContext);
+  const { setShowModalEdit, tasks, data,setEditMode } = useContext(FormContext);
 
 
-  const editData = async (e) => {
+  const editData = async (e,task,data) => {
     e.preventDefault();
+    
     try {
-      const response = await editApiData(tasks, data);
+      const response = await editApiData(task, data);
       if (response.status === 200) {
-        setShowModal(false);
+        setShowModalEdit(false);
         getData();
+        setEditMode(false);
       }
+     
     } catch (error) {
       console.error(error);
     }
