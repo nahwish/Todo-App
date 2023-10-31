@@ -4,17 +4,12 @@ import { EditIcon } from "../Icons/EditIcon/EditIcon";
 import Modal from "../Modal";
 import TrashIcon from "../Icons/TrashIcon";
 
-const ListItem = ({
-  isOpen,
-  toggleDetails,
-  deleteItem,
-  task,
-}) => {
-
+const ListItem = ({ isOpen, toggleDetails, deleteItem, task }) => {
   const [showModalForEdit, setShowModalForEdit] = useState(false);
-const handleEdit = () => {
-  setShowModalForEdit(true);
-};
+  
+  const handleEdit = () => {
+    setShowModalForEdit(true);
+  };
   return (
     <>
       <div className="list-item">
