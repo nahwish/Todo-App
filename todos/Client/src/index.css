@@ -187,3 +187,6 @@ input{
 .check{
   padding:10px;
 }
+summary{
+  cursor: pointer ;
+}

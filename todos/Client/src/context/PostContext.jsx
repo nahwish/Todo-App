@@ -11,9 +11,7 @@ export const PostContextProvider = ({children}) =>{
     const { setShowModalCreate, setEditMode } = useContext(FormContext);
     const { getData } = useContext(GetContext);
 
-    const postData = async (e,data) => {
-      e.preventDefault();
-      
+    const postData = async (data) => {
       try {
         const response = await createApiData(data);
         if (response.status === 200) {

@@ -1,11 +1,10 @@
-import { createContext,useContext } from "react";
+import { createContext, useContext } from "react";
 import { deleteApiData } from "../services/Api";
 import { GetContext } from "./GetContext";
 
-
 export const DeleteContext = createContext();
 
-export const DeleteProvider = ({children}) =>{
+export const DeleteProvider = ({ children }) => {
   const { getData } = useContext(GetContext);
 
   const deleteItem = async (id) => {
@@ -14,12 +13,11 @@ export const DeleteProvider = ({children}) =>{
       if (response.status === 200) {
         await getData();
       }
-      alert("eliminado")
+      alert("eliminado");
     } catch (error) {
       console.error(error);
     }
   };
-
 
   const contextValue = { deleteItem };
 
@@ -28,4 +26,4 @@ export const DeleteProvider = ({children}) =>{
       {children}
     </DeleteContext.Provider>
   );
-}
+};

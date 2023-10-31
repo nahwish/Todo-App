@@ -1,6 +1,6 @@
 import ListHeader from "../components/ListHeader";
 import ListItem from "../components/ListItem";
-import Select from "../components/Select";
+import Select from "../components/SelectCategory";
 
 export const Home = () => {
 

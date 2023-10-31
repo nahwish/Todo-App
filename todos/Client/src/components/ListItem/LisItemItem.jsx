@@ -4,12 +4,10 @@ import { EditIcon } from "../Icons/EditIcon/EditIcon";
 import Modal from "../Modal";
 import TrashIcon from "../Icons/TrashIcon";
 
-const ListItem = ({ isOpen, toggleDetails, deleteItem, task }) => {
-  const [showModalForEdit, setShowModalForEdit] = useState(false);
-  
-  const handleEdit = () => {
-    setShowModalForEdit(true);
-  };
+const ListItem = (props) => {
+  const {isOpen,toggleDetails,deleteItem,task,showModalForEdit,setShowModalForEdit,} = props;
+
+
   return (
     <>
       <div className="list-item">
@@ -26,7 +24,7 @@ const ListItem = ({ isOpen, toggleDetails, deleteItem, task }) => {
         <p className="">{task.category}</p>
 
         <div className="button-container">
-          <button className="edit" onClick={() => handleEdit()}>
+          <button className="edit" onClick={() => setShowModalForEdit(true)}>
             <EditIcon />
           </button>
           <button className="delete" onClick={() => deleteItem(task.id)}>

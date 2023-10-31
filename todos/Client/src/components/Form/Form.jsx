@@ -16,9 +16,10 @@ export const Form = ({ handleSubmit, handleInputChange, arrayoptions,data,isCrea
         onChange={handleInputChange}
         placeholder="Descripción de la tarea..."
       />
-      <label htmlFor="check">
+      <label htmlFor="checkbox">
         {data.progress ? "Tarea completada" : "Tarea pendiente"}
       </label>
+
       <input
         type="checkbox"
         name="progress"
@@ -26,12 +27,13 @@ export const Form = ({ handleSubmit, handleInputChange, arrayoptions,data,isCrea
         checked={data.progress}
         onChange={handleInputChange}
       />
+      <label htmlFor="select">Tipo de Nota</label>
       <select
+      id="select"
         name="category"
         onChange={handleInputChange}
         value={data.category}
       >
-        <option value="">Tipo de nota</option>
         {arrayoptions.map((option, index) => (
           <option key={index} value={option}>
             {option}

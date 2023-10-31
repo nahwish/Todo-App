@@ -5,11 +5,11 @@ import { PostContext } from "../../context/PostContext";
 import { Form } from "./Form";
 
 export const FormContainer = ({ isCreating, task, setShowModalForEdit }) => {
+  /* CONTEXT */
   const { postData } = useContext(PostContext);
   const { editData } = useContext(EditContext);
   const { arrayoptions } = useContext(FormContext);
-  // Los estados del formulario
-
+  /* STATE */
   const [data, setData] = useState({
     user_email: !isCreating ? task?.user_email : "chawi@test.com",
     title: !isCreating ? task?.title : "",
@@ -18,8 +18,7 @@ export const FormContainer = ({ isCreating, task, setShowModalForEdit }) => {
     category: !isCreating ? task?.category : "",
     date: !isCreating ? task?.date : new Date(),
   });
-
-  // Función para manejar los cambios en los campos del formulario
+  /* CHNAGE INPUT */
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setData({
@@ -28,13 +27,13 @@ export const FormContainer = ({ isCreating, task, setShowModalForEdit }) => {
     });
   };
 
-  // Función para enviar el formulario
+  /* SUBMIT */
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isCreating) {
-      postData(e, data);
+      postData(data);
     } else {
-      editData(e, task, data);
+      editData(task, data);
     }
     setShowModalForEdit(false);
   };
