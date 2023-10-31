@@ -1,55 +1,75 @@
-import { useContext } from "react";
+import { useContext,useState } from "react";
 import { FormContext } from "../../context/FormContext";
+import { EditContext } from "../../context/EditContext";
+import { PostContext } from "../../context/PostContext";
 
+export const FormContainer = ({ isCreating, task, setShowModalForEdit }) => {
+  const { postData } = useContext(PostContext);
+  const { editData } = useContext(EditContext);
+  const { arrayoptions } = useContext(FormContext);
+  // Los estados del formulario
 
-export const FormComponent = ({
-  data,
-  editMode,
-  editData,
-  setData,
-  postData,
-}) => {
-  const { arrayoptions, isChecked, setIsChecked } =
-    useContext(FormContext);
-  const { title, description, progress, category } = data;
+  const [data, setData] = useState({
+    user_email: !isCreating ? task?.user_email : "chawi@test.com",
+    title: !isCreating ? task?.title : "",
+    progress: !isCreating ? task?.progress : false,
+    description: !isCreating ? task?.description : "",
+    category: !isCreating ? task?.category : "",
+    date: !isCreating ? task?.date : new Date(),
+  });
 
-  const handleChange = (e) => {
+  // Función para manejar los cambios en los campos del formulario
+  const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setIsChecked(checked);
-    setData((prevData) => ({
-      ...prevData,
+    setData({
+      ...data,
       [name]: type === "checkbox" ? checked : value,
-    }));
+    });
+  };
+
+  // Función para enviar el formulario
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isCreating) {
+      postData(e, data);
+    } else {
+      editData(e, task, data);
+    }
+    setShowModalForEdit(false);
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         required
         name="title"
-        value={title}
-        onChange={handleChange}
-        placeholder="Titulo de la tarea"
+        value={data.title}
+        onChange={handleInputChange}
+        placeholder="Título de la tarea"
       />
       <textarea
         required
         name="description"
-        value={description}
-        onChange={handleChange}
+        value={data.description}
+        onChange={handleInputChange}
         placeholder="Descripción de la tarea..."
       />
       <label htmlFor="check">
-        {isChecked ? "Tarea completada" : "Tarea pendiente"}{" "}
+        {data.progress ? "Tarea completada" : "Tarea pendiente"}
       </label>
       <input
         type="checkbox"
         name="progress"
         id="checkbox"
-        value={progress}
-        onChange={handleChange}
+        checked={data.progress}
+        onChange={handleInputChange}
       />
-      <select name="category" onChange={handleChange} value={category}>
+      <select
+        name="category"
+        onChange={handleInputChange}
+        value={data.category}
+      >
         <option value="">Tipo de nota</option>
         {arrayoptions.map((option, index) => (
           <option key={index} value={option}>
@@ -58,11 +78,11 @@ export const FormComponent = ({
         ))}
       </select>
 
-      <input
-        className="modal"
-        type="submit"
-        onClick={editMode ? editData : postData}
-      />
+      <button className="modal" type="submit">
+        {isCreating ? "Crear" : "Editar"}
+      </button>
     </form>
   );
 };
+
+

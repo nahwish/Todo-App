@@ -1,4 +1,4 @@
-import { FormComponent } from "./FormComponent";
+import { FormContainer } from "./FormComponent";
 
-export default FormComponent;
+export default FormContainer;
 

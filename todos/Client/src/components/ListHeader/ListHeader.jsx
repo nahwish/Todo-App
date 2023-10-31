@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Modal from "../Modal";
-
+import { FormContext } from "../../context/FormContext";
 /**
  * Header component for a list with options to add and sign out.
  * @param {Object} props - The component's props.
@@ -9,17 +9,25 @@ import Modal from "../Modal";
  * @returns {JSX.Element} The ListHeader component.
  */
 
-const ListHeader = ({ listName,getData }) => {
-  const [showModal, setShowModal] = useState(false);
+const ListHeader = ({ listName }) => {
+  const [showModalForCreate, setShowModalForCreate] = useState(false);
+
+  let create = "";
+  const { setEditMode, setShowModalCreate,showModalCreate  } = useContext(FormContext);
   const signOut = () => {
     // TODO implement login
   };
+
+  const handleCreate = () => {
+    setShowModalForCreate(true);
+  };
+
 
   return (
     <div className="list-header">
       <h1>{listName}</h1>
       <div className="button-container">
-        <button className="create" onClick={() => setShowModal(true)}>
+        <button className="create" onClick={() => handleCreate()}>
           Agregar
         </button>
         <button className="signout" onClick={signOut}>
@@ -27,13 +35,8 @@ const ListHeader = ({ listName,getData }) => {
         </button>
       </div>
 
-      {showModal && (
-        <Modal
-          modal={"create"}
-          setShowModal={setShowModal}
-          getData={getData}
-         
-        />
+      {showModalForCreate && (
+        <Modal mode="create" closeModal={() => setShowModalForCreate(false)} />
       )}
     </div>
   );

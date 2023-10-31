@@ -24,13 +24,17 @@ export const FormContext = createContext();
 export const FormContextProvider = ({ children }) => {
   const arrayoptions = ["Todo","Compras", "Turnos", "Nota personal"];
   const userMail = "chawi@test.com";
+  
 
-  const [selectedCategory, setSelectedCategory] = useState("Todo");
-  const [filteredTasks, setFilteredTasks] = useState([]);
-  const [showModal, setShowModal] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [filteredTasks, setFilteredTasks] = useState();
+  const [showModalEdit, setShowModalEdit] = useState(false);
+  const [showModalCreate, setShowModalCreate] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [tasks, setTasks] = useState(null);
+  const [tasks, setTasks] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
+  const [editMode, setEditMode] = useState(false);
+
 
   const contextValue = {
     arrayoptions,
@@ -38,8 +42,10 @@ export const FormContextProvider = ({ children }) => {
     setSelectedCategory,
     filteredTasks,
     setFilteredTasks,
-    showModal,
-    setShowModal,
+    showModalCreate,
+    setShowModalCreate,
+    showModalEdit,
+    setShowModalEdit,
     isOpen,
     setIsOpen,
     tasks,
@@ -47,6 +53,8 @@ export const FormContextProvider = ({ children }) => {
     isChecked,
     setIsChecked,
     userMail,
+    editMode,
+    setEditMode,
   };
   return (
     <FormContext.Provider value={contextValue}>{children}</FormContext.Provider>
