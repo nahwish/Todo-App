@@ -27,8 +27,14 @@ export const AuthForm = () =>{
       body: JSON.stringify({email, password})
     })
 
-    const data = await response.json()
-    console.log(data)
+    const data = await response.json();
+
+    if(data.detail){
+      setError(data.detail);
+    }else{
+      setCookie("Email", data.email);
+      setCookie("AuthToken", data.token);
+    }
   }
   return (
     <>
