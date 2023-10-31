@@ -66,4 +66,7 @@ app.delete('/todos/:id',async(req,res)=>{
     console.error(error)
   }
 })
+
+// signup
+app.post("")
 app.listen(PORT, ()=> console.log(`The server is run in the port ${PORT}`));

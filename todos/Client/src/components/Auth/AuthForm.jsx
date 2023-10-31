@@ -9,6 +9,7 @@ export const AuthForm = () =>{
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
 
+  console.log(email,password,confirmPassword)
   const viewLogin = (status) =>{
     setError(null);
     setIsLogIn(status)
@@ -20,22 +21,44 @@ export const AuthForm = () =>{
       setError("Por favor,revisar los datos");
       return
     }
-    await fetch(`${process.env.REACT_APP_SERVERURL}/${endpoint}`)
+    const response = await fetch(`${process.env.REACT_APP_SERVERURL}/${endpoint}`,{
+      method: 'POST',
+      headers: {'Content-Type' : 'application/json'},
+      body: JSON.stringify({email, password})
+    })
+
+    const data = await response.json()
+    console.log(data)
   }
   return (
     <>
       <form>
         <h2>{isLogIn ? "Ingresar" : "Crear cuenta"}</h2>
-        <input type="email" className="" placeholder="email" />
-        <input type="password" className="" placeholder="password" />
+        <input
+          type="email"
+          className=""
+          placeholder="email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          className=""
+          placeholder="password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
         {!isLogIn && (
           <input
             type="password"
             className=""
             placeholder="confirmar contraseña"
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
         )}
-        <input type="submit" className="create" onClick={(e)=>handleSubmit(e, isLogIn ? "Login" : "Signup")} />
+        <input
+          type="submit"
+          className="create"
+          onClick={(e) => handleSubmit(e, isLogIn ? "Login" : "Signup")}
+        />
         {error && <p>{error}</p>}
       </form>
       <div className="auth-options">
