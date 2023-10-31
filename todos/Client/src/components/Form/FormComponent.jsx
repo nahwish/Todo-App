@@ -2,6 +2,7 @@ import { useContext,useState } from "react";
 import { FormContext } from "../../context/FormContext";
 import { EditContext } from "../../context/EditContext";
 import { PostContext } from "../../context/PostContext";
+import { Form } from "./Form";
 
 export const FormContainer = ({ isCreating, task, setShowModalForEdit }) => {
   const { postData } = useContext(PostContext);
@@ -39,49 +40,12 @@ export const FormContainer = ({ isCreating, task, setShowModalForEdit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        required
-        name="title"
-        value={data.title}
-        onChange={handleInputChange}
-        placeholder="Título de la tarea"
-      />
-      <textarea
-        required
-        name="description"
-        value={data.description}
-        onChange={handleInputChange}
-        placeholder="Descripción de la tarea..."
-      />
-      <label htmlFor="check">
-        {data.progress ? "Tarea completada" : "Tarea pendiente"}
-      </label>
-      <input
-        type="checkbox"
-        name="progress"
-        id="checkbox"
-        checked={data.progress}
-        onChange={handleInputChange}
-      />
-      <select
-        name="category"
-        onChange={handleInputChange}
-        value={data.category}
-      >
-        <option value="">Tipo de nota</option>
-        {arrayoptions.map((option, index) => (
-          <option key={index} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
-
-      <button className="modal" type="submit">
-        {isCreating ? "Crear" : "Editar"}
-      </button>
-    </form>
+    <Form
+      handleSubmit={handleSubmit}
+      handleInputChange={handleInputChange}
+      arrayoptions={arrayoptions}
+      data={data}
+    />
   );
 };
 

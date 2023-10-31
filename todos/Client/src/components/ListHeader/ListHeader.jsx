@@ -1,19 +1,9 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import Modal from "../Modal";
-import { FormContext } from "../../context/FormContext";
-/**
- * Header component for a list with options to add and sign out.
- * @param {Object} props - The component's props.
- * @param {string} props.listName - The name of the list.
- * @param {Function} props.getData - Function to fetch data.
- * @returns {JSX.Element} The ListHeader component.
- */
 
 const ListHeader = ({ listName }) => {
   const [showModalForCreate, setShowModalForCreate] = useState(false);
 
-  let create = "";
-  const { setEditMode, setShowModalCreate,showModalCreate  } = useContext(FormContext);
   const signOut = () => {
     // TODO implement login
   };
