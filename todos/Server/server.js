@@ -4,7 +4,8 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const pool = require('./db');
-
+const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
 app.use(cors());
 app.use(express.json());
 
@@ -68,5 +69,17 @@ app.delete('/todos/:id',async(req,res)=>{
 })
 
 // signup
-app.post("")
+app.post("/signup", async (req,res)=>{
+  const {email, password} = req.body;
+  const salt = bcrypt.genSaltSync(10);
+  const hashedPassword = bcrypt.hashSync(password,salt);
+  try{
+    await pool.query(
+      `INSERT INTO users (email, hashed_password) VALUES($1,$2)`,
+      [email, hashedPassword]
+    );
+  }catch(error){
+    console.error(error)
+  }
+})
 app.listen(PORT, ()=> console.log(`The server is run in the port ${PORT}`));
