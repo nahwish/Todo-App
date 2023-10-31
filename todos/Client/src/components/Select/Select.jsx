@@ -7,14 +7,18 @@ export const Select = () => {
     arrayoptions,
     selectedCategory,
     setSelectedCategory,
-    setFilteredTasks,
-    tasks,
+    setTasks,
+    filteredTasks
   } = useContext(FormContext);
+
+
 
   const handleChange = (event) => {
     const category = event.target.value;
     setSelectedCategory(category);
-    filterTasksByCategory(category, setFilteredTasks, tasks);
+    filterTasksByCategory(category, filteredTasks, setTasks);
+
+   
   };
 
   return (
@@ -24,3 +28,4 @@ export const Select = () => {
     </select>
   );
 };
+
