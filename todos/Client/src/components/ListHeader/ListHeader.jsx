@@ -1,13 +1,9 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import Modal from "../Modal";
-import { FormContext } from "../../context/FormContext";
-
 
 const ListHeader = ({ listName }) => {
   const [showModalForCreate, setShowModalForCreate] = useState(false);
 
-  let create = "";
-  const { setEditMode, setShowModalCreate,showModalCreate  } = useContext(FormContext);
   const signOut = () => {
     // TODO implement login
   };
