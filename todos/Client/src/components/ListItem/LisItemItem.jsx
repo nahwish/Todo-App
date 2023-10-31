@@ -4,7 +4,7 @@ import { EditIcon } from "../Icons/EditIcon/EditIcon";
 import Modal from "../Modal";
 import TrashIcon from "../Icons/TrashIcon";
 
-const ListItemContainer = ({
+const ListItem = ({
   isOpen,
   toggleDetails,
   deleteItem,
@@ -50,4 +50,4 @@ const handleEdit = () => {
   );
 };
 
-export default ListItemContainer;
+export default ListItem;

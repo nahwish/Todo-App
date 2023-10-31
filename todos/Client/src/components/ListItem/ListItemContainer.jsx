@@ -2,7 +2,7 @@ import { useState,useContext } from "react";
 import { FormContext } from "../../context/FormContext";
 import { DeleteContext } from "../../context/DeleteContext";
 import { GetContext } from "../../context/GetContext";
-import ListItemContainer from "./LisItemContainer";
+import ListItem from "./LisItemItem";
 
 /**
  * Component for displaying and interacting with a task item in the list.
@@ -13,12 +13,17 @@ import ListItemContainer from "./LisItemContainer";
  * @returns {JSX.Element} The ListItem component.
  */
 
-const ListItem = () => {
+export const ListItemContainer = () => {
   const [showModal, setShowModal] = useState(false);
-  const { setEditMode, editMode, tasks,filteredTasks, showModalEdit, setShowModalEdit } =
-    useContext(FormContext);
+  const {
+    setEditMode,
+    editMode,
+    tasks,
+    filteredTasks,
+    showModalEdit,
+    setShowModalEdit,
+  } = useContext(FormContext);
   const { deleteItem } = useContext(DeleteContext);
-
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,17 +31,16 @@ const ListItem = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleEdit = async() =>{
+  const handleEdit = async () => {
     await setEditMode(true);
-    if(editMode){
+    if (editMode) {
       setShowModalEdit(true);
-
     }
-  }
+  };
 
   // console.log("->TAAAAKS",filteredTasks)
   return tasks?.map((task) => (
-    <ListItemContainer
+    <ListItem
       key={task.id}
       filteredTasks={filteredTasks}
       toggleDetails={toggleDetails}
@@ -50,4 +54,3 @@ const ListItem = () => {
   ));
 };
 
-export default ListItem;

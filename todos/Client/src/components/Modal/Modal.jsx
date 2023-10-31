@@ -1,5 +1,5 @@
 import CloseIcon from "../Icons/CloseIcon";
-import FormComponent from "../Form";
+import FormContainer from "../Form";
 
 
 export const Modal = ({ mode, task, closeModal }) => {
@@ -14,7 +14,7 @@ export const Modal = ({ mode, task, closeModal }) => {
             <CloseIcon setShowModal={closeModal} />
           </button>
         </div>
-        <FormComponent
+        <FormContainer
           isCreating={isCreating}
           task={task}
           setShowModalForEdit={closeModal}
