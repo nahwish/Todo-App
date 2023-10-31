@@ -1,9 +1,8 @@
 import { useState,useContext } from "react"; 
 import { FormContext } from "../../context/FormContext";
-import CheckIcon from "../Icons/CheckIcon";
-import { EditIcon } from "../Icons/EditIcon/EditIcon";
-import Modal from "../Modal";
-import TrashIcon from "../Icons/TrashIcon";
+import { DeleteContext } from "../../context/DeleteContext";
+import { GetContext } from "../../context/GetContext";
+import ListItemContainer from "./LisItemContainer";
 
 /**
  * Component for displaying and interacting with a task item in the list.
@@ -14,9 +13,12 @@ import TrashIcon from "../Icons/TrashIcon";
  * @returns {JSX.Element} The ListItem component.
  */
 
-const ListItem = ({ deleteItem, getData,task }) => {
-  // const [showModal, setShowModal] = useState(false);
-  const { showModal, setShowModal, setEditMode } = useContext(FormContext);
+const ListItem = () => {
+  const [showModal, setShowModal] = useState(false);
+  const { setEditMode, editMode, tasks,filteredTasks, showModalEdit, setShowModalEdit } =
+    useContext(FormContext);
+  const { deleteItem } = useContext(DeleteContext);
+
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -24,43 +26,28 @@ const ListItem = ({ deleteItem, getData,task }) => {
     setIsOpen(!isOpen);
   };
 
-  const handleEdit = () =>{
-    setShowModal(true);
-    setEditMode(true);
+  const handleEdit = async() =>{
+    await setEditMode(true);
+    if(editMode){
+      setShowModalEdit(true);
+
+    }
   }
 
-  return (
-    <div className="list-item">
-      <div className="info-container">
-        <CheckIcon task={task?.progress} />
-        <p className="task-title">{task.title}</p>
-      </div>
-      <details open={isOpen}>
-        <summary onClick={toggleDetails}>Detalle</summary>
-        <div>
-          <p>{task.description}</p>
-        </div>
-      </details>
-      <p className="">{task.category}</p>
-
-      <div className="button-container">
-        <button className="edit" onClick={() => handleEdit()}>
-          <EditIcon />
-        </button>
-        <button className="delete" onClick={() => deleteItem(task.id)}>
-          <TrashIcon />
-        </button>
-      </div>
-      {showModal && (
-        <Modal
-          modal={"editar"}
-          setShowModal={setShowModal}
-          task={task}
-          getData={getData}
-        />
-      )}
-    </div>
-  );
+  // console.log("->TAAAAKS",filteredTasks)
+  return tasks?.map((task) => (
+    <ListItemContainer
+      key={task.id}
+      filteredTasks={filteredTasks}
+      toggleDetails={toggleDetails}
+      handleEdit={handleEdit}
+      isOpen={isOpen}
+      deleteItem={deleteItem}
+      showModalEdit={showModalEdit}
+      task={task}
+      setShowModalEdit={setShowModalEdit}
+    />
+  ));
 };
 
 export default ListItem;
