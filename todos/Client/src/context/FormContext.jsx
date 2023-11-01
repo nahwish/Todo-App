@@ -14,8 +14,8 @@ export const FormContextProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [tasks, setTasks] = useState([]);//
   const [isChecked, setIsChecked] = useState(false);
-
-
+  /* AUTH */
+  const isLogIn = false;
 
   const contextValue = {
     arrayoptions,
@@ -30,6 +30,7 @@ export const FormContextProvider = ({ children }) => {
     isChecked,
     setIsChecked,
     userMail,
+    isLogIn,
   };
   return (
     <FormContext.Provider value={contextValue}>{children}</FormContext.Provider>

@@ -1,20 +1,27 @@
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { useContext } from "react";
+import { useCookies } from "react-cookie";
 import { GetContext } from "./context/GetContext";
 import Home from "./Page";
+import Auth from "./components/Auth";
 
 
 const App = () => {
   const { getData } = useContext(GetContext);
+  const [cookies,setCookie,removeCookie] = useCookies(null)
+  const authToken = cookies.AuthToken;
+  const userEmail = cookies.Email;
 
-
+  console.log("-->email",userEmail)
   useEffect(() => {
-    getData();
+    getData(userEmail);
   }, []);
 
   return (
     <div className="app">
-      <Home />
+      {!authToken && <Auth />}
+      {authToken && <Home userEmail={userEmail} />}
+      <p className="copyright"> Creado con ♥️</p>
     </div>
   );
 };

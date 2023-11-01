@@ -11,12 +11,12 @@ export const PostContextProvider = ({children}) =>{
     const { setShowModalCreate, setEditMode } = useContext(FormContext);
     const { getData } = useContext(GetContext);
 
-    const postData = async (data) => {
+    const postData = async (data,email) => {
       try {
         const response = await createApiData(data);
         if (response.status === 200) {
-          getData();
-          setShowModalCreate(false);
+          getData(email);
+          // setShowModalCreate(false);
         }
       } catch (error) {
         console.error(error);

@@ -7,11 +7,11 @@ export const DeleteContext = createContext();
 export const DeleteProvider = ({ children }) => {
   const { getData } = useContext(GetContext);
 
-  const deleteItem = async (id) => {
+  const deleteItem = async (id,user) => {
     try {
       const response = await deleteApiData(id);
       if (response.status === 200) {
-        await getData();
+        await getData(user);
       }
       alert("eliminado");
     } catch (error) {
