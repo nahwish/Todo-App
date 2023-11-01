@@ -1,11 +1,16 @@
 import { useState } from "react";
 import Modal from "../Modal";
+import { useCookies } from "react-cookie";
 
 const ListHeader = ({ listName }) => {
   const [showModalForCreate, setShowModalForCreate] = useState(false);
+  const [cookies, setCookie, removeCookie] = useCookies();
 
   const signOut = () => {
     // TODO implement login
+    removeCookie('Email')
+    removeCookie("AuthToken");
+    window.location.reload()
   };
 
   const handleCreate = () => {
