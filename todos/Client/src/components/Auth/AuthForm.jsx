@@ -1,5 +1,6 @@
 import { useContext,useState } from "react"
-import { FormContext } from "../../context/FormContext"
+import { FormContext } from "../../context/FormContext";
+import {useCookies} from "react-cookie";
 
 export const AuthForm = () =>{
   // const {isLogIn} = useContext(FormContext);
@@ -8,6 +9,7 @@ export const AuthForm = () =>{
   const [email,setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
+  const [ cookies,setCookie, removeCookie] = useCookies();
 
   console.log(email,password,confirmPassword)
   const viewLogin = (status) =>{
