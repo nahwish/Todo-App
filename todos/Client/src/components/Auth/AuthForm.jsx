@@ -23,11 +23,11 @@ export const AuthForm = () =>{
       setError("Por favor,revisar los datos");
       return
     }
-    const response = await fetch(`${process.env.REACT_APP_SERVERURL}/${endpoint}`,{
-      method: 'POST',
-      headers: {'Content-Type' : 'application/json'},
-      body: JSON.stringify({email, password})
-    })
+    const response = await fetch(`http://localhost:8000/${endpoint}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
 
     const data = await response.json();
 
@@ -36,6 +36,8 @@ export const AuthForm = () =>{
     }else{
       setCookie("Email", data.email);
       setCookie("AuthToken", data.token);
+      window.location.reload()
+
     }
   }
   return (
@@ -47,6 +49,7 @@ export const AuthForm = () =>{
           className=""
           placeholder="email"
           onChange={(e) => setEmail(e.target.value)}
+          title={isLogIn ? "Crear un mail de prueba" : "utilizar el mail registrado"}
         />
         <input
           type="password"
@@ -65,7 +68,7 @@ export const AuthForm = () =>{
         <input
           type="submit"
           className="create"
-          onClick={(e) => handleSubmit(e, isLogIn ? "Login" : "Signup")}
+          onClick={(e) => handleSubmit(e, isLogIn ? "login" : "signup")}
         />
         {error && <p>{error}</p>}
       </form>

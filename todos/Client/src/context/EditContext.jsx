@@ -7,11 +7,11 @@ export const EditContext = createContext();
 export const EditContextProvider = ({ children }) => {
   const { getData } = useContext(GetContext);
 
-  const editData = async (task, data) => {
+  const editData = async (task, data, user) => {
     try {
       const response = await editApiData(task, data);
       if (response.status === 200) {
-        getData();
+        getData(user);
       }
     } catch (error) {
       console.error(error);

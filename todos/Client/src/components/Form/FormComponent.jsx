@@ -35,9 +35,9 @@ export const FormContainer = ({ isCreating, task, setShowModalForEdit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isCreating) {
-      postData(data);
+      postData(data, data.user_email);
     } else {
-      editData(task, data);
+      editData(task, data, data.user_email);
     }
     setShowModalForEdit(false);
   };

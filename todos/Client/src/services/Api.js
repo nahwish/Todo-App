@@ -4,7 +4,8 @@
  * @returns {Promise<Object>} A Promise that resolves to the fetched data.
  */
 export const fetchApiData = async (userMail) => {
-  const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${userMail}`);
+  console.log("----->fetchmail", userMail);
+  const response = await fetch(`http://localhost:8000/todos/${userMail}`);
   const json = await response.json();
   return json;
 };
@@ -15,11 +16,9 @@ export const fetchApiData = async (userMail) => {
  * @returns {Promise<Response>} A Promise that resolves to the HTTP response.
  */ 
 export const deleteApiData = async (id) => {
-  const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${id}`,
-    {
-      method: "DELETE",
-    }
-  );
+  const response = await fetch(`http://localhost:8000/todos/${id}`, {
+    method: "DELETE",
+  });
   return response;
 };
 
@@ -29,11 +28,12 @@ export const deleteApiData = async (id) => {
  * @returns {Promise<Response>} A Promise that resolves to the HTTP response.
  */
 export const createApiData = async (data) => {
-  const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos`, {
+  const response = await fetch(`http://localhost:8000/todos`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
+  
   return response;
 };
 
@@ -44,7 +44,7 @@ export const createApiData = async (data) => {
  * @returns {Promise<Response>} A Promise that resolves to the HTTP response.
  */
 export const editApiData = async (task, data) => {
-  const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${task.id}`, {
+  const response = await fetch(`http://localhost:8000/todos/${task.id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),

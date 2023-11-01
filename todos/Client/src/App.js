@@ -10,15 +10,18 @@ const App = () => {
   const { getData } = useContext(GetContext);
   const [cookies,setCookie,removeCookie] = useCookies(null)
   const authToken = cookies.AuthToken;
+  const userEmail = cookies.Email;
 
+  console.log("-->email",userEmail)
   useEffect(() => {
-    if(authToken) getData()
+    getData(userEmail);
   }, []);
 
   return (
     <div className="app">
-      {!authToken && <Auth/>}
-      {authToken && <Home />}
+      {!authToken && <Auth />}
+      {authToken && <Home userEmail={userEmail} />}
+      <p className="copyright"> Creado con ♥️</p>
     </div>
   );
 };

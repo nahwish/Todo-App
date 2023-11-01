@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useCookies } from "react-cookie";
+
 import CheckIcon from "../Icons/CheckIcon";
 import { EditIcon } from "../Icons/EditIcon/EditIcon";
 import Modal from "../Modal";
@@ -6,7 +8,9 @@ import TrashIcon from "../Icons/TrashIcon";
 
 const ListItem = (props) => {
   const {isOpen,toggleDetails,deleteItem,task,showModalForEdit,setShowModalForEdit,} = props;
-
+  const [cookies, setCookie, removeCookie] = useCookies(null);
+  const authToken = cookies.AuthToken;
+  const userEmail = cookies.Email;
 
   return (
     <>
@@ -27,7 +31,10 @@ const ListItem = (props) => {
           <button className="edit" onClick={() => setShowModalForEdit(true)}>
             <EditIcon />
           </button>
-          <button className="delete" onClick={() => deleteItem(task.id)}>
+          <button
+            className="delete"
+            onClick={() => deleteItem(task.id, userEmail)}
+          >
             <TrashIcon />
           </button>
         </div>

@@ -5,9 +5,10 @@ import { fetchApiData } from "../services/Api";
 export const GetContext = createContext();
 
 export const GetContextProvider = ({ children }) => {
-  const { userMail, setTasks, setFilteredTasks } = useContext(FormContext);
+  const {  setTasks, setFilteredTasks } = useContext(FormContext);
 
-  const getData = async () => {
+  const getData = async (userMail) => {
+    console.log("estoy en context",userMail)
     try {
       const response = await fetchApiData(userMail);
       setFilteredTasks(response);
