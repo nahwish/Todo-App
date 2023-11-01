@@ -235,3 +235,15 @@ summary{
   margin: 10px;
   color: rgb(114,114,144);
 }
+
+/* SELECT */
+.selec-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  
+}
+select{
+  
+  text-align: center;
+}

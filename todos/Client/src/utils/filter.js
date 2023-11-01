@@ -7,7 +7,7 @@
 
 export const filterTasksByCategory = (category, originalData=[], setTasks) => {
   const originalTasks = originalData.slice();
-  if (category === "Todo") {
+  if (category === "Ver todo") {
     setTasks(originalData);
   } else {
     const filtered = originalTasks.filter((task) => task.category === category);

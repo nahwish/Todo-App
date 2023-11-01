@@ -12,7 +12,7 @@ const App = () => {
   const authToken = cookies.AuthToken;
   const userEmail = cookies.Email;
 
-  console.log("-->email",userEmail)
+
   useEffect(() => {
     getData(userEmail);
   }, []);
