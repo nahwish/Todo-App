@@ -15,9 +15,9 @@ export const ListItemContainer = () => {
     setIsOpen(!isOpen);
   };
 
-  return tasks?.map((task) => (
+  return tasks?.map((task,index) => (
     <ListItem
-      key={task.id}
+      key={index}
       isOpen={isOpen}
       toggleDetails={toggleDetails}
       deleteItem={deleteItem}

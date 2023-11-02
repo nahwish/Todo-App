@@ -48,6 +48,7 @@ export const FormContainer = ({ isCreating, task, setShowModalForEdit }) => {
       handleInputChange={handleInputChange}
       arrayoptions={arrayoptions}
       data={data}
+      isCreating={isCreating}
     />
   );
 };

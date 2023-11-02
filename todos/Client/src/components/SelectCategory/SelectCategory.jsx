@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { FormContext } from "../../context/FormContext";
 import { filterTasksByCategory } from "../../utils/filter";
+import FilterIcon from "../Icons/FilterIcon";
 
 export const SelectCategory = () => {
   const {
@@ -18,10 +19,13 @@ export const SelectCategory = () => {
   };
 
   return (
+    <div className="selec-container">
     <select onChange={handleChange} value={selectedCategory}>
       {arrayoptions &&
         arrayoptions.map((option) => <option key={option}>{option}</option>)}
     </select>
+        <FilterIcon/>
+    </div>
   );
 };
 

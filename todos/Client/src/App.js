@@ -1,9 +1,12 @@
-import { useEffect,useState } from "react";
+import { useEffect } from "react";
 import { useContext } from "react";
 import { useCookies } from "react-cookie";
+/* CONTEXT */
 import { GetContext } from "./context/GetContext";
+/* COMPONENTS*/
 import Home from "./Page";
 import Auth from "./components/Auth";
+import { FormContext } from "./context/FormContext";
 
 
 const App = () => {
@@ -12,7 +15,7 @@ const App = () => {
   const authToken = cookies.AuthToken;
   const userEmail = cookies.Email;
 
-  console.log("-->email",userEmail)
+
   useEffect(() => {
     getData(userEmail);
   }, []);

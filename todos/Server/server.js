@@ -48,6 +48,7 @@ app.post('/todos', async (req,res)=>{
 
 app.put('/todos/:id',async(req,res) =>{
   const { id } = req.params;
+
   const {user_email, title,description,category,progress,date} = req.body;
   try {
     const editTodo = await pool.query('UPDATE todos SET user_email = $1, title = $2, progress = $3, description = $4,category = $5 ,date = $6 WHERE id = $7',[user_email,title,progress,description,category,date,id])

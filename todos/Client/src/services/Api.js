@@ -4,17 +4,17 @@
  * @returns {Promise<Object>} A Promise that resolves to the fetched data.
  */
 export const fetchApiData = async (userMail) => {
-  console.log("----->fetchmail", userMail);
   const response = await fetch(`http://localhost:8000/todos/${userMail}`);
   const json = await response.json();
   return json;
+
 };
 
 /**
  * Deletes a task item from the API by its ID.
  * @param {string} id - The ID of the task to delete.
  * @returns {Promise<Response>} A Promise that resolves to the HTTP response.
- */ 
+ */
 export const deleteApiData = async (id) => {
   const response = await fetch(`http://localhost:8000/todos/${id}`, {
     method: "DELETE",
@@ -33,7 +33,7 @@ export const createApiData = async (data) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
-  
+
   return response;
 };
 

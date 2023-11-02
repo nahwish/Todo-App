@@ -1,48 +1,61 @@
-import { useState } from "react";
 import { useCookies } from "react-cookie";
 
 import CheckIcon from "../Icons/CheckIcon";
 import { EditIcon } from "../Icons/EditIcon/EditIcon";
 import Modal from "../Modal";
 import TrashIcon from "../Icons/TrashIcon";
+import ShoppingIcon from "../Icons/ShoppingIcon";
+import NotesIcon from "../Icons/NotesIcon";
 
 const ListItem = (props) => {
-  const {isOpen,toggleDetails,deleteItem,task,showModalForEdit,setShowModalForEdit,} = props;
+  const {isOpen,toggleDetails,deleteItem,task,showModalForEdit,setShowModalForEdit} = props;
   const [cookies, setCookie, removeCookie] = useCookies(null);
-  const authToken = cookies.AuthToken;
+
   const userEmail = cookies.Email;
+
+  const Icon = (category) =>{
+    if(category === "Compras"){
+      return <ShoppingIcon/>
+    }else if(category === "Turnos"){
+      return <NotesIcon/>
+    }
+  }
+
 
   return (
     <>
       <div className="list-item">
         <div className="info-container">
           <CheckIcon task={task?.progress} />
+          <span className="list-category">{Icon(task.category)}</span>
           <p className="task-title">{task.title}</p>
         </div>
-        <details open={isOpen}>
+
+        <details open={showModalForEdit === task.id && isOpen}>
           <summary onClick={toggleDetails}>Detalle</summary>
-          <div>
-            <p>{task.description}</p>
+          <div className="description-taskitem">
+            <div className="description-container">
+              <p>{task.description}</p>
+            </div>
           </div>
         </details>
-        <p className="">{task.category}</p>
 
         <div className="button-container">
-          <button className="edit" onClick={() => setShowModalForEdit(true)}>
+          <button className="edit" onClick={() => setShowModalForEdit(task.id)}>
             <EditIcon />
           </button>
           <button
             className="delete"
-            onClick={() => deleteItem(task.id, userEmail)}
+            onClick={() => deleteItem(task.id, userEmail, task.category)}
           >
             <TrashIcon />
           </button>
         </div>
-        {showModalForEdit && (
+        {showModalForEdit === task.id && (
           <Modal
             mode="edit"
             task={task}
-            closeModal={() => setShowModalForEdit(false)}
+            closeModal={() => setShowModalForEdit(null)}
           />
         )}
       </div>
