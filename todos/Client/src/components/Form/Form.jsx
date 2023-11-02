@@ -15,6 +15,8 @@ export const Form = ({
         value={data.title}
         onChange={handleInputChange}
         placeholder="Título de la tarea"
+        maxLength={20}
+        
       />
       <textarea
         required
@@ -23,10 +25,10 @@ export const Form = ({
         onChange={handleInputChange}
         placeholder="Descripción de la tarea..."
       />
+      <div className="label-checkbox">
       <label htmlFor="checkbox">
         {data.progress ? "Tarea completada" : "Tarea pendiente"}
       </label>
-
       <input
         type="checkbox"
         name="progress"
@@ -47,8 +49,9 @@ export const Form = ({
           </option>
         ))}
       </select>
+      </div>
 
-      <button className="modal" type="submit">
+      <button className="modal button-modal" type="submit">
         {isCreating ? "Crear" : "Editar"}
       </button>
     </form>

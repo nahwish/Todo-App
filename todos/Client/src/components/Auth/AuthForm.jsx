@@ -76,7 +76,7 @@ export const AuthForm = () =>{
         <button
           onClick={() => viewLogin(false)}
           style={{
-            backgroundColor: isLogIn ? "rgb(255,255,255)" : "rgb(188,188,188)",
+            "backgroundColor": isLogIn ? "rgb(255,255,255)" : "rgb(188,188,188)",
           }}
         >
           Sign Up
@@ -84,7 +84,7 @@ export const AuthForm = () =>{
         <button
           onClick={() => viewLogin(true)}
           style={{
-            backgroundColor: !isLogIn ? "rgb(255,255,255)" : "rgb(188,188,188)",
+            "backgroundColor": !isLogIn ? "rgb(255,255,255)" : "rgb(188,188,188)",
           }}
         >
           Login

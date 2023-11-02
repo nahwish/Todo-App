@@ -7,12 +7,15 @@ export const GetContext = createContext();
 export const GetContextProvider = ({ children }) => {
   const {  setTasks, setFilteredTasks } = useContext(FormContext);
 
-  const getData = async (userMail) => {
-    console.log("estoy en context",userMail)
+  const getData = async (userMail,category) => {
     try {
       const response = await fetchApiData(userMail);
       setFilteredTasks(response);
-      setTasks(response);
+        if (category && category !== "Ver todo") {
+          return setTasks(response.filter((task) => task.category === category))
+        }else{
+          setTasks(response)
+        }
     } catch (error) {
       console.error(error);
     }

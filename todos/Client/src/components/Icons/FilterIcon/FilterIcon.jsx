@@ -5,7 +5,7 @@ export const FilterIcon = () =>{
       width="16"
       height="16"
       fill="currentColor"
-      class="bi bi-filter"
+      className="bi bi-filter"
       viewBox="0 0 16 16"
     >
       {" "}
