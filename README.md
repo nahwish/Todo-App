@@ -24,25 +24,35 @@ Sigue estos pasos para instalar y ejecutar **TodoApp**:
    ```bash
    git clone git@github.com:ensolvers-github-challenges/Rojas-c832a4.git
 2. Navega al directorio del proyecto:
-cd todo
-
+   ```bash
+   cd todo
 3. Instala las dependencias generales:
-npm install
+   ```bash
+   npm install
 4. Navega hacia la carpeta Client:
-cd Client
+   ```bash
+   cd Client
 - Instala las dependencias: 
-npm install
+   ```bash
+   npm install
 5. Instala las dependencias del backend:
-Navega hacia la carpeta Server:
-cd Server
+   
+   Navega hacia la carpeta Server:
+   ```bash
+   cd Server
 -Instala las dependencias:
-npm install
-6. Levanta ambos servidores (frontend y backend):
+    ```bash
+    npm install
 
+6. Levanta ambos servidores (frontend y backend):
 - Dentro de la carpeta Client:
-npm start
+   ```bash
+   npm start
+
 - Dentro de la carpeta Server:
-npm start
+
+   ```bash
+   npm start
 
 ¡Listo! Ahora puedes utilizar TodoApp para tomar notas y organizar tus tareas.
 
