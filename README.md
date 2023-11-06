@@ -4,9 +4,12 @@
 Bienvenido a **TodoApp**, la aplicación que te permite tomar notas y organizarlas. Puedes utilizarla para crear notas sobre compras, gestionar turnos médicos o simplemente tomar notas personales. Con **TodoApp**, puedes ver, editar, eliminar y buscar notas por categoría.
 
 
+<img src="./todos/Client/public/crear.png" alt="Home">
+<img src="./todos/Client/public/ingresar.png" alt="Home">
 <img src="./todos/Client/public/image1.png" alt="Home">
-<img src="./todos/Client/public/imagen2.png" alt="Home">
-<img src="./todos/Client/public/imagen3.png" alt="Home">
+<img src="./todos/Client/public/agregar.png" alt="Home">
+<img src="./todos/Client/public/editar.png" alt="Home">
+<img src="./todos/Client/public/lista.png" alt="Home">
 
 
 ## Requisitos Previos
