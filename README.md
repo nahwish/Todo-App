@@ -9,13 +9,12 @@ ya que se almacenará en la base de datos y guardará tus notas personales, pudi
 <img src="./todos/Client/public/crear.png" alt="Home">
 
 Una vez creada tu cuenta podrás acceder a la app y verás el listado de tareas pendientes:
-
-<img src="./todos/Client/public/ingresar.png" alt="Home">
-
 Aquí podrás agregar o eliminar tareas, actualizarlas (si las quieres) y marcar como
 completadas.
 
 <img src="./todos/Client/public/image1.png" alt="Home">
+
+<img src="./todos/Client/public/lista.png" alt="Home">
 
 Podrás agregar tareas y asignarle una categoria. lugo podrás filtrar por la cartegoria deseada.
 
@@ -28,7 +27,8 @@ También podras borrar los registros, o marcar como completadas.
 Para loguearte en la app se utiliza un formulario con email y contraseña, si no estas registrado te red
 ireccionara al signup para que puedas crear una cuenta.
 
-<img src="./todos/Client/public/lista.png" alt="Home">
+<img src="./todos/Client/public/ingresar.png" alt="Home">
+
 
 
 ## Requisitos Previos
@@ -76,10 +76,10 @@ Sigue estos pasos para instalar y ejecutar **TodoApp**:
 
 Características
 Creación, edición y eliminación de notas.
-Búsqueda de notas por categoría.
-👉 para el frontend se utilizó React y css
-👉 para el backend express
-👉 para la base de datos postgreSql
+Búsqueda de notas por categoría. 
+- 👉 para el frontend se utilizó React y css
+- 👉 para el backend express
+- 👉 para la base de datos postgreSql
 
 
 
