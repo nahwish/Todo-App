@@ -6,7 +6,7 @@ export const Home = ({ userEmail }) => {
   return (
     <>
       <ListHeader listName={"😊 Agregar a la lista"} />
-      <p className="user-email">Welcome back {userEmail}</p>
+      <p className="user-email">Bienvenido {userEmail}</p>
       <Select />
       <ListItem />
     </>
