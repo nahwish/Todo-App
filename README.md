@@ -3,12 +3,31 @@
 ## Descripción
 Bienvenido a **TodoApp**, la aplicación que te permite tomar notas y organizarlas. Puedes utilizarla para crear notas sobre compras, gestionar turnos médicos o simplemente tomar notas personales. Con **TodoApp**, puedes ver, editar, eliminar y buscar notas por categoría.
 
+En Signup tenés la posibilidad de crear una cuenta, puede ser ficticia, lo importantes es que la recuerdes
+ya que se almacenará en la base de datos y guardará tus notas personales, pudiendo administrar varios usuarios.
 
 <img src="./todos/Client/public/crear.png" alt="Home">
+
+Una vez creada tu cuenta podrás acceder a la app y verás el listado de tareas pendientes:
+
 <img src="./todos/Client/public/ingresar.png" alt="Home">
+
+Aquí podrás agregar o eliminar tareas, actualizarlas (si las quieres) y marcar como
+completadas.
+
 <img src="./todos/Client/public/image1.png" alt="Home">
+
+Podrás agregar tareas y asignarle una categoria. lugo podrás filtrar por la cartegoria deseada.
+
 <img src="./todos/Client/public/agregar.png" alt="Home">
+
+También podras borrar los registros, o marcar como completadas.
+
 <img src="./todos/Client/public/editar.png" alt="Home">
+
+Para loguearte en la app se utiliza un formulario con email y contraseña, si no estas registrado te red
+ireccionara al signup para que puedas crear una cuenta.
+
 <img src="./todos/Client/public/lista.png" alt="Home">
 
 
@@ -40,10 +59,9 @@ Sigue estos pasos para instalar y ejecutar **TodoApp**:
    Navega hacia la carpeta Server:
    ```bash
    cd Server
--Instala las dependencias:
-    ```bash
-    npm install
-
+- Instala las dependencias: 
+   ```bash 
+   npm install
 6. Levanta ambos servidores (frontend y backend):
 - Dentro de la carpeta Client:
    ```bash
