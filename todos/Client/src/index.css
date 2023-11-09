@@ -1,15 +1,15 @@
 body{
   margin: 0;
   padding: 0;
-  background-color: rgb(233,241,249);
+  background-color: rgb(224, 238, 250);
   display: flex;
   justify-content: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .app{
-  background-color: rgb(155, 255, 255);
-  box-shadow: rgba(0,0,0,0.05) 0 6px 24px,rgba(0,0,0,0.08) 0 0 0 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(14, 13, 13, 0.05) 0 6px 24px,rgba(0,0,0,0.08) 0 0 0 1px;
   border-radius: 10px;
   padding: 10px;
   width: 800px;
@@ -33,7 +33,7 @@ body{
 .list-header{
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   border-bottom: rgba(0, 0, 0, 0.05) 1px solid;
 }
 
@@ -41,6 +41,7 @@ body{
   border: 1.5px solid rgb(141,181,145);
   color: rgb(141,181,145);
   text-transform: uppercase;
+  margin-left: 10px;
 }
 .edit:hover{
   background-color: yellowgreen;
@@ -198,7 +199,18 @@ form {
   gap: 3px;
 }
 /* Check */
-
+.checked{
+  color: rgb(135, 132, 132);
+  text-decoration: line-through;
+}
+.editIcon{
+margin-block: auto;
+}
+.listItemContext{
+  display: flex;
+    justify-content: space-around;
+   
+}
 .check{
   padding:10px;
 }
@@ -267,6 +279,9 @@ gap: 10px;
 select{
   
   text-align: center;
+  width: 140px;
+  padding: 5px;
+  border-radius: 6px;
 }
 
 .ischeck{
