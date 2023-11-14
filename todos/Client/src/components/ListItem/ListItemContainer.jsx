@@ -3,6 +3,7 @@ import { FormContext } from "../../context/FormContext";
 import { DeleteContext } from "../../context/DeleteContext";
 import ListItem from "./LisItemItem";
 import SelectCategory from "../SelectCategory";
+import ProgressBar from "../PogressBar";
 
 export const ListItemContainer = () => {
   const { tasks } = useContext(FormContext);
@@ -33,8 +34,7 @@ export const ListItemContainer = () => {
       </div>
       <section className="selectCategorySection">
         <SelectCategory />
-        <div className="progress">contenido</div>
-        <div className="progress">contenido</div>
+        <ProgressBar />
       </section>
     </div>
   );

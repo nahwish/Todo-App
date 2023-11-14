@@ -1,4 +1,5 @@
 import { EditIcon } from "../Icons/EditIcon/EditIcon";
+import FileIcon from "../Icons/FileIcon";
 
 export const Form = ({
   handleSubmit,
@@ -52,8 +53,8 @@ export const Form = ({
         </select>
       </div>
 
-      <button className="modal button-modal" type="submit">
-        {isCreating ? "Crear" : <EditIcon />}
+      <button className="editIcon " type="submit">
+        {isCreating ? <FileIcon/> : <EditIcon />}
       </button>
     </form>
   );
