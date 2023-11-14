@@ -34,7 +34,7 @@ export const ListItemContainer = () => {
       </div>
       <section className="selectCategorySection">
         <SelectCategory />
-        <ProgressBar/>
+        <ProgressBar />
       </section>
     </div>
   );

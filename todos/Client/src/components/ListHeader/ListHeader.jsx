@@ -19,16 +19,16 @@ const ListHeader = ({ listName }) => {
 
 
   return (
+      <div className="button-container">
     <div className="list-header">
       <h1 className="lisName">{listName}</h1>
-      <div className="button-container">
+      </div>
         <button className="create" onClick={() => handleCreate()}>
           Agregar
         </button>
         <button className="signout" onClick={signOut}>
           Salir
         </button>
-      </div>
 
       {showModalForCreate && (
         <Modal mode="create" closeModal={() => setShowModalForCreate(false)} />
