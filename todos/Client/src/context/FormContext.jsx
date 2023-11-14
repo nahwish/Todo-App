@@ -5,7 +5,7 @@ export const FormContext = createContext();
 
 
 export const FormContextProvider = ({ children }) => {
-  const arrayoptions = ["Ver todo", "Turnos", "Compras"];
+  const arrayoptions = ["Ver todo", "Notas", "Compras"];
   const userMail = "chawi@test.com";
   
 

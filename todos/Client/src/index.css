@@ -1,137 +1,138 @@
-body{
+body {
   margin: 0;
   padding: 0;
   background-color: rgb(224, 238, 250);
   display: flex;
   justify-content: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
-.app{
+.app {
   background-color: rgb(255, 255, 255);
-  box-shadow: rgba(14, 13, 13, 0.05) 0 6px 24px,rgba(0,0,0,0.08) 0 0 0 1px;
+  box-shadow: rgba(14, 13, 13, 0.05) 0 6px 24px, rgba(0, 0, 0, 0.08) 0 0 0 1px;
   border-radius: 10px;
   padding: 10px;
   width: 800px;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
-.button-container, .info-container {
-  display:flex;
+.button-container,
+.info-container {
+  display: flex;
   align-items: center;
 }
-.button-container button{
+.button-container button {
   font-size: 10px;
   margin: 0 5px;
- 
+
   padding: 5px 10px;
   border-radius: 12px;
   background-color: transparent;
 }
 
 /* List Header */
-.list-header{
+.list-header {
   width: 100%;
   display: flex;
   justify-content: space-around;
   border-bottom: rgba(0, 0, 0, 0.05) 1px solid;
 }
 
-.edit{
-  border: 1.5px solid rgb(141,181,145);
-  color: rgb(141,181,145);
+.edit {
+  border: 1.5px solid rgb(141, 181, 145);
+  color: rgb(141, 181, 145);
   text-transform: uppercase;
   margin-left: 10px;
 }
-.edit:hover{
+.edit:hover {
   background-color: yellowgreen;
   color: rgb(229, 235, 230);
 }
 
-.edit:active{
-    border: 1.5px solid rgb(141,181,145);
+.edit:active {
+  border: 1.5px solid rgb(141, 181, 145);
   color: rgb(229, 235, 230);
   background-color: rgb(166, 197, 103);
 }
 
-.delete{
+.delete {
   border: 1.5px solid rgb(135, 20, 2);
   color: rgb(135, 20, 2);
 }
 
-.delete:hover{
+.delete:hover {
   background-color: rgb(135, 20, 2);
   color: white;
 }
 
-.delete:active{
+.delete:active {
   background-color: rgb(215, 61, 37);
   color: white;
 }
 
-.eye{
+.eye {
   border: 1.5px solid rgb(135, 20, 2);
   color: rgb(135, 20, 2);
   margin: 11px 0;
   padding: 12px 16px;
   border-radius: 12px;
-  border: 1.5px solid rgb(230,232,236);
+  border: 1.5px solid rgb(230, 232, 236);
 }
 summary::-webkit-details-marker,
 summary::-moz-details-marker {
   display: none;
 }
 
-
-
 .create {
-  border: 1.5px, solid rgb(108,115,148);
+  border: 1.5px, solid rgb(108, 115, 148);
   color: rgb(78, 74, 73);
   text-transform: uppercase;
 }
 
-.create:hover{
-  background-color: rgb(108,115,148);
+.create:hover {
+  background-color: rgb(108, 115, 148);
   color: rgb(233, 230, 230);
 }
-.create:active{
-  background-color: rgb(108,115,148);
+.create:active {
+  background-color: rgb(108, 115, 148);
 }
 
-.signout{
-    border: 1.5px, solid rgb(108,115,148);
+.signout {
+  border: 1.5px, solid rgb(108, 115, 148);
   color: rgb(78, 74, 73);
   text-transform: uppercase;
 }
 
-.signout:hover{
-   background-color: rgb(108,115,148);
+.signout:hover {
+  background-color: rgb(108, 115, 148);
   color: rgb(233, 230, 230);
 }
-.signout:active{
-  background-color: rgb(108,115,148);
+.signout:active {
+  background-color: rgb(108, 115, 148);
 }
 /* List Item*/
 
-.list-item{
-  width: 100%;
-  margin:10px 0;
-  border-radius:10px;
-  box-shadow: rgba(0,0,0,0.08) 0 0 0 1px;
+.list-item {
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0 0 0 1px;
   display: flex;
   justify-content: space-between;
 }
-
+.listItems {
+  width: 60%;
+}
 
 /* Modal */
-.overlay{
+.overlay {
   position: absolute;
-  left:   0;
+  left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.5);
-  display:  flex;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -140,169 +141,203 @@ textarea {
   min-height: 150px;
 }
 
-.modal{
+.modal {
   width: 450px;
   background-color: rgb(255, 255, 255);
   padding: 30px;
-  border-radius:10px;
-  box-shadow: rgba(0, 0, 0, 0.07) 0,6px, 24px 0, rgba(0, 0, 0, 0.08) 0 0 0 1px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0, 6px, 24px 0, rgba(0, 0, 0, 0.08) 0 0 0 1px;
 }
-.button-modal{
-  background-color: rgb(109, 163, 142);
+.button-modal {
+  background-color: rgb(255, 255, 255);
+
+  padding: auto;
 }
-.button-modal:hover{
+.button-modal:hover {
   background-color: rgb(55, 182, 133);
   cursor: pointer;
 }
-.closeIcon{
+.closeIcon {
   color: rgb(245, 90, 90);
 }
-.closeIcon:hover{
+.closeIcon:hover {
   color: red;
   cursor: pointer;
 }
-.closeIcon:active{
+.closeIcon:active {
   color: deeppink;
 }
-.modal .form-title-container{
+.modal .form-title-container {
   display: flex;
   justify-content: space-between;
 }
 
-.modal .form-title-container button{
+.modal .form-title-container button {
   border: none;
   background-color: transparent;
 }
 
-.modal form{
+.modal form {
   display: flex;
   flex-direction: column;
-
 }
 
-.modal label{
+.modal label {
   font-size: 13px;
 }
 input {
   margin: 11px 0;
   padding: 12px 16px;
   border-radius: 12px;
-  border: 1.5px solid rgb(230,232,236);
+  border: 1.5px solid rgb(230, 232, 236);
 }
-textarea{
-   margin: 11px 0;
+textarea {
+  margin: 11px 0;
   padding: 12px 16px;
   border-radius: 12px;
-  border: 1.5px solid rgb(230,232,236);
+  border: 1.5px solid rgb(230, 232, 236);
 }
 form {
   gap: 3px;
 }
 /* Check */
-.checked{
+.checked {
   color: rgb(135, 132, 132);
   text-decoration: line-through;
 }
-.editIcon{
-margin-block: auto;
-}
-.listItemContext{
+.editIcon {
+  margin: 0;
   display: flex;
-    justify-content: space-around;
-   
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  height: 30px;
+  background-color: transparent;
 }
-.check{
-  padding:10px;
+.editIcon:hover{
+  background-color: rgb(81, 181, 59);
 }
-summary{
-  cursor: pointer ;
+.creating{
+ color:rgb(81, 181, 59);
+}
+.title-task{
+  align-items: center;
+}
+.editing{
+  color: orange;
+}
+.fileIcon{
+  font-size: small;
+  align-items: center;
+}
+.listItemContext {
+  display: flex;
+  justify-content: space-around;
+}
+.check {
+  padding: 10px;
+}
+summary {
+  cursor: pointer;
   text-decoration: none;
 }
-.label-checkbox{
- display: flex;
- justify-content: center;
-gap: 10px;
+.label-checkbox {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
 }
 
 /* AUTH */
 
-.auth-container{
+.auth-container {
   display: flex;
   justify-content: center;
   margin: 50px;
 }
 
-.auth-container-box{
+.auth-container-box {
   width: 500px;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: rgba(0,0,0,0.05) 0 6px 24px, rgba(0,0,0,0.08) 0 0 0 1px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px, rgba(0, 0, 0, 0.08) 0 0 0 1px;
 }
 
-.auth-container-box form{
+.auth-container-box form {
   display: flex;
   flex-direction: column;
   height: 350px;
   padding: 20px;
 }
 
-.auth-options{
+.auth-options {
   display: flex;
 }
 
-.auth-options button{
+.auth-options button {
   width: 50%;
   border: none;
   padding: 10px;
-  color: rgb(35,38,47)
+  color: rgb(35, 38, 47);
 }
 
-.copyright{
+.copyright {
   font-size: 13px;
   margin: 10px;
-  color: rgb(114,114,144);
+  color: rgb(114, 114, 144);
 }
-.user-email{
+.user-email {
   float: right;
   font-size: 13px;
   margin: 10px;
-  color: rgb(114,114,144);
+  color: rgb(114, 114, 144);
 }
 
 /* SELECT */
-.selec-container{
+.selec-container {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-  
 }
-select{
-  
+.selectCategorySection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+select {
   text-align: center;
   width: 140px;
   padding: 5px;
   border-radius: 6px;
 }
-
-.ischeck{
+.progress {
+  width: 10vh;
+  display: inline-block;
+  text-align: center;
+}
+.spanProgress {
+  display: inline-block;
+  margin-top: 15px;
+}
+.ischeck {
   width: 20px;
-  color:rgb(42, 233, 9);
+  color: rgb(42, 233, 9);
   margin: 13px;
 }
-.notCheck{
+.notCheck {
   width: 20px;
-  color:grey;
+  color: grey;
   margin: 13px;
 }
 
-.list-category{
+.list-category {
   margin-left: 15px;
 }
 
-.note{
-  color:rgb(231, 93, 93);
+.note {
+  color: rgb(231, 93, 93);
 }
-.task-title{
+.task-title {
   margin-left: 15px;
-
 }
