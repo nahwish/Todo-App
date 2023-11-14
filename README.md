@@ -7,13 +7,13 @@ Bienvenido a **TodoApp**, la aplicación que te permite tomar notas y organizarl
 En Signup tenés la posibilidad de crear una cuenta, puede ser ficticia, lo importantes es que la recuerdes
 ya que se almacenará en la base de datos y guardará tus notas personales, pudiendo administrar varios usuarios.
 
-<img src="./todos/Client/public/crear-cuenta.png" alt="Home">
+<img src="./todos/Client/public/ingresar.png" alt="Home">
 
 Para loguearte en la app se utiliza un formulario con email y contraseña, si no estas registrado te red
 ireccionara al signup para que puedas crear una cuenta.
 
 <hr/>
-<img src="./todos/Client/public/ingresar.png" alt="Home">
+<img src="./todos/Client/public/crear-cuenta.png" alt="Home">
 
 <hr/>
 Una vez creada tu cuenta podrás acceder a la app y verás el listado de tareas pendientes:
@@ -25,7 +25,7 @@ completadas.
 <hr/>
 Podrás agregar tareas y asignarle una categoria. lugo podrás filtrar por la cartegoria deseada.
 
-<img src="./todos/Client/public/agregar.png" alt="Home">
+<img src="./todos/Client/public/filtrar.png" alt="Home">
 
 <hr/>
 También podras borrar los registros, o marcar como completadas.
