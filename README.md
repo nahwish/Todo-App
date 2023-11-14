@@ -43,7 +43,7 @@ Sigue estos pasos para instalar y ejecutar **TodoApp**:
 
 1. Clona el repositorio:
    ```bash
-   git clone git@github.com:ensolvers-github-challenges/Rojas-c832a4.git
+   git clone git@github.com:nahwish/Todo-App.git
 2. Navega al directorio del proyecto:
    ```bash
    cd todo
