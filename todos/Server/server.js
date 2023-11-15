@@ -1,6 +1,8 @@
 const PORT = process.env.PORT ?? 8000;
 const express = require('express');
- const { v4: uuidv4 } = require('uuid')
+ const { v4: uuidv4 } = require('uuid');
+ const path = require("path");
+ const serveStatic = require("serve-static");
 const cors = require('cors');
 const app = express();
 const pool = require('./db');
@@ -10,7 +12,7 @@ const jwt = require('jsonwebtoken');
 
 app.use(cors());
 app.use(express.json());
-
+app.use(serveStatic(path.join(__dirname, "client/build")));
 // get all todos
 app.get('/todos/:userEmail', async (req,res)=>{
   const {userEmail} = req.params;
