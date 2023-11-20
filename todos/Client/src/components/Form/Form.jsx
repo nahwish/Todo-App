@@ -15,7 +15,7 @@ export const Form = ({
         type="text"
         required
         name="title"
-        value={data.title}
+        value={data?.title}
         onChange={handleInputChange}
         placeholder="Título de la tarea"
         
@@ -23,19 +23,19 @@ export const Form = ({
       <textarea
         required
         name="description"
-        value={data.description}
+        value={data?.description}
         onChange={handleInputChange}
         placeholder="Descripción de la tarea..."
       />
       <div className="label-checkbox">
         <label htmlFor="checkbox">
-          {data.progress ? "Tarea completada" : "Tarea pendiente"}
+          {data?.progress ? "Tarea completada" : "Tarea pendiente"}
         </label>
         <input
           type="checkbox"
           name="progress"
           id="checkbox"
-          checked={data.progress}
+          checked={data?.progress}
           onChange={handleInputChange}
         />
         <label htmlFor="select">Tipo de Nota</label>
@@ -43,9 +43,9 @@ export const Form = ({
           id="select"
           name="category"
           onChange={handleInputChange}
-          value={data.category}
+          value={data?.category}
         >
-          {arrayoptions.map((option, index) => (
+          {arrayoptions?.map((option, index) => (
             <option key={index} value={option}>
               {option}
             </option>
